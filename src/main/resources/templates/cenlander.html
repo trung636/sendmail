@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+<!--  All snippets are MIT license http://bootdey.com/license -->
+<title>Cenlander</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="timetable-img text-center">
+			<img src="img/content/timetable.png" alt="">
+		</div>
+		<div class="table-responsive">
+			<table class="table table-bordered text-center">
+				<thead>
+					<tr class="bg-light-gray">
+						<th class="text-uppercase">From</th>
+						<th class="text-uppercase">To</th>
+						<th class="text-uppercase">Time Send</th>
+						<th class="text-uppercase">Subject</th>
+						<th class="text-uppercase">Contend</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="mail : ${mailDto}">
+						<td class="align-middle" th:text="${mail.sendFrom}"></td>
+						<td><span
+							class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"
+							th:text="${mail.sendTo}"></span>
+						<td><span
+							class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"
+							th:text="${mail.sendTime}"></span>
+						<td><span
+							class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"
+							th:text="${mail.subject}"></span>
+						<td><span
+							class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"
+							th:text="${mail.sendContend}"></span>
+						<td><a th:href="@{/updateMail/{id}(id=${mail.id})}"
+							class="btn btn-primary">Update</a></td>
+						<td><a th:href="@{/deleteMail/{id}(id=${mail.id})}"
+							class="btn btn-danger">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="container">
+		<div class="timetable-img text-center">
+			<a th:href="@{/cel}" class="btn btn-danger">Cenlander Mail</a> <a
+				th:href="@{/sendnow}" class="btn btn-primary">Send Now</a> <a
+				th:href="@{/sendcel}" class="btn btn-danger">Send Cenlander</a> <a
+				th:href="@{/history}" class="btn btn-primary">History</a>
+		</div>
+	</div>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script
+		src="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>
